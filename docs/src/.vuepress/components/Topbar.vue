@@ -1,12 +1,18 @@
-<script>
-import 'add-to-calendar-button';
+<script setup>
+import { usePageFrontmatter } from "@vuepress/client";
+import "add-to-calendar-button";
+
+const frontmatter = usePageFrontmatter();
 </script>
 <template>
   <div class="topbar">
     <p>
-      <span
-        >Cookbook Community Meetup - 12pm ET / 5pm GMT every week on
-        Wednesdays</span
+      <span>
+        {{
+          frontmatter.locale === "es"
+            ? "Encuentro de la Comunidad del Libro de Recetas: todos los miércoles a las 12pm ET / 5pm GMT."
+            : "Cookbook Community Meetup - 12pm ET / 5pm GMT every week on Wednesdays"
+        }}</span
       >
       <add-to-calendar-button
         name="Permaweb Cookbook Community Meetup - 12pm ET / 5pm GMT every week on Wednesdays"
