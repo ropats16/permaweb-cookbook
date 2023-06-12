@@ -1,9 +1,10 @@
 <script setup>
-import ToggleColorModeButton from '@theme/ToggleColorModeButton.vue';
-import ToggleSidebarButton from './ToggleSidebarButton.vue';
-import { ref } from 'vue';
-import { useThemeLocaleData } from '@vuepress/theme-default/lib/client/composables/index.js';
-defineEmits(['toggle-sidebar']);
+import ToggleColorModeButton from "@theme/ToggleColorModeButton.vue";
+import ToggleSidebarButton from "./ToggleSidebarButton.vue";
+import ToggleLanguageButton from "./ToggleLanguageButton.vue";
+import { ref } from "vue";
+import { useThemeLocaleData } from "@vuepress/theme-default/lib/client/composables/index.js";
+defineEmits(["toggle-sidebar", "toggle-language"]);
 const themeLocale = useThemeLocaleData();
 const navbar = ref(null);
 </script>
@@ -47,6 +48,11 @@ const navbar = ref(null);
 
     <div class="col-3 col-md-8 col-lg-9">
       <div class="cookbook-navbar-items">
+        <ToggleLanguageButton
+          style="margin-right: 26px"
+          class="d-block"
+          @toggle="$emit('toggle-language')"
+        />
         <RouterLink
           class="d-none d-md-block"
           style="color: var(--c-text)"
@@ -93,7 +99,7 @@ const navbar = ref(null);
 </template>
 
 <style lang="scss">
-@import '../styles/bootstrap.scss';
+@import "../styles/bootstrap.scss";
 
 :root {
   --navbar-height: 16px;
