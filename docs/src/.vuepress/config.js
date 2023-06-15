@@ -75,8 +75,8 @@ export default {
 
   theme: defaultTheme({
     layouts: {
-      "/": "./layouts/en/DefaultLayout.vue",
-      "/es/": "./layouts/es/DefaultLayout.vue",
+      "/": "./layouts/DefaultLayout.vue",
+      "/es/": "./layouts/LayoutES.vue",
     },
     colorMode: "dark",
     sidebar: {
